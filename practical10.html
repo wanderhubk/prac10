@@ -1,0 +1,1476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WanderX</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        body {
+            background: #020617;
+        }
+
+        .hero-bg {
+            background:
+                linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 1)),
+                url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1800&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glow {
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.18);
+        }
+
+        .game-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .game-card img {
+            transition: 0.4s;
+        }
+
+        .modal-bg {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+        }
+
+    </style>
+
+</head>
+
+
+<body class="text-white">
+
+
+    <!-- NAVBAR -->
+
+    <nav class="bg-slate-950/90 backdrop-blur-lg sticky top-0 z-50 border-b border-purple-900/50">
+
+        <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
+
+            <h1 class="text-2xl md:text-3xl font-extrabold">
+                �
+                <span class="text-purple-400">Wander</span>X
+            </h1>
+
+
+            <button onclick="showFavorites()"
+                class="relative bg-purple-600 hover:bg-purple-700
+                px-4 py-2 rounded-full transition">
+
+                ❤️ Favorites
+
+                <span id="favCount"
+                    class="absolute -top-2 -right-2 bg-pink-500
+                    text-xs w-5 h-5 rounded-full flex items-center
+                    justify-center">
+
+                    0
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero-bg min-h-[600px] flex items-center">
+
+        <div class="max-w-7xl mx-auto px-5 w-full">
+
+            <div class="max-w-3xl">
+
+                <p class="text-purple-400 font-bold tracking-[4px] mb-5">
+                    LEVEL UP YOUR EXPERIENCE
+                </p>
+
+
+                <h2 class="text-5xl md:text-7xl font-black leading-tight">
+
+                    ENTER THE
+                    <span class="text-purple-500">
+                        GAME
+                    </span>
+
+                    <br>
+
+                    UNIVERSE 🎮
+
+                </h2>
+
+
+                <p class="text-gray-300 text-lg mt-6 max-w-xl">
+
+                    Explore popular games, discover new adventures
+                    and keep all your favourite games in one place.
+
+                </p>
+
+
+                <div class="flex flex-wrap gap-4 mt-8">
+
+                    <a href="#games"
+                        class="bg-purple-600 hover:bg-purple-700
+                        px-7 py-3 rounded-xl font-semibold
+                        transition">
+
+                        Explore Games →
+
+                    </a>
+
+
+                    <button onclick="scrollToFeatured()"
+                        class="border border-white/20 hover:bg-white/10
+                        px-7 py-3 rounded-xl font-semibold transition">
+
+                        ⭐ Featured Game
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- STATS -->
+
+    <section class="max-w-6xl mx-auto px-5 -mt-10 relative z-10">
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+            <div class="bg-slate-900 border border-slate-800
+                rounded-2xl p-6 text-center glow">
+
+                <h3 class="text-3xl font-bold text-purple-400">
+                    10+
+                </h3>
+
+                <p class="text-gray-400 text-sm mt-1">
+                    Games
+                </p>
+
+            </div>
+
+
+            <div class="bg-slate-900 border border-slate-800
+                rounded-2xl p-6 text-center glow">
+
+                <h3 class="text-3xl font-bold text-pink-400">
+                    4
+                </h3>
+
+                <p class="text-gray-400 text-sm mt-1">
+                    Categories
+                </p>
+
+            </div>
+
+
+            <div class="bg-slate-900 border border-slate-800
+                rounded-2xl p-6 text-center glow">
+
+                <h3 class="text-3xl font-bold text-blue-400">
+                    4.8
+                </h3>
+
+                <p class="text-gray-400 text-sm mt-1">
+                    Top Rating
+                </p>
+
+            </div>
+
+
+            <div class="bg-slate-900 border border-slate-800
+                rounded-2xl p-6 text-center glow">
+
+                <h3 class="text-3xl font-bold text-green-400">
+                    ∞
+                </h3>
+
+                <p class="text-gray-400 text-sm mt-1">
+                    Fun
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FEATURED GAME -->
+
+    <section id="featured"
+        class="max-w-7xl mx-auto px-5 pt-20">
+
+        <div class="bg-gradient-to-r from-purple-950
+            via-slate-900 to-slate-900
+            rounded-3xl overflow-hidden
+            border border-purple-900/50">
+
+            <div class="grid md:grid-cols-2">
+
+                <img
+                    src="https://static0.polygonimages.com/wordpress/wp-content/uploads/2025/05/ELDEN-RING-NIGHTREIGN-_-Ironeye-Character-Trailer-0-22-screenshot.jpg?w=1600&h=900&fit=crop"
+                    class="w-full h-full min-h-[300px] object-cover"
+                    alt="Featured Game">
+
+
+                <div class="p-8 md:p-12 flex flex-col justify-center">
+
+                    <span class="text-purple-400 font-bold text-sm">
+                        ⭐ FEATURED GAME
+                    </span>
+
+
+                    <h2 class="text-4xl font-bold mt-3">
+                        Elden Ring
+                    </h2>
+
+
+                    <div class="text-yellow-400 mt-3">
+                        ⭐ 4.9 / 5
+                    </div>
+
+
+                    <p class="text-gray-400 mt-5 leading-relaxed">
+
+                        Enter a massive fantasy world filled with
+                        exploration, challenges and unforgettable
+                        adventures.
+
+                    </p>
+
+
+                    <button
+                        onclick="openDetails(
+                        'Elden Ring',
+                        'Adventure',
+                        '4.9',
+                        'Explore a huge fantasy world filled with challenging enemies and exciting adventures.'
+                        )"
+                        class="bg-purple-600 hover:bg-purple-700
+                        px-6 py-3 rounded-xl mt-7 w-fit">
+
+                        View Game Details →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- GAMES SECTION -->
+
+    <section id="games"
+        class="max-w-7xl mx-auto px-5 py-20">
+
+
+        <div class="text-center mb-10">
+
+            <p class="text-purple-400 font-semibold">
+                EXPLORE
+            </p>
+
+            <h2 class="text-4xl font-bold mt-2">
+                Popular Games
+            </h2>
+
+            <p class="text-gray-500 mt-3">
+                Find a game that matches your mood.
+            </p>
+
+        </div>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="max-w-xl mx-auto mb-8">
+
+            <input
+                type="text"
+                id="search"
+                onkeyup="searchGames()"
+                placeholder="🔍 Search your favourite game..."
+                class="w-full p-4 rounded-xl
+                bg-slate-900 border border-slate-700
+                focus:border-purple-500
+                outline-none transition">
+
+        </div>
+
+
+
+        
+
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+
+            <button onclick="filterGames('all')"
+                class="filter-btn active-filter
+                px-5 py-2 rounded-full">
+
+                All Games
+
+            </button>
+
+
+            <button onclick="filterGames('Action')"
+                class="filter-btn px-5 py-2 rounded-full">
+
+                🔫 Action
+
+            </button>
+
+
+            <button onclick="filterGames('Racing')"
+                class="filter-btn px-5 py-2 rounded-full">
+
+                🏎️ Racing
+
+            </button>
+
+
+            <button onclick="filterGames('Adventure')"
+                class="filter-btn px-5 py-2 rounded-full">
+
+                🗺️ Adventure
+
+            </button>
+
+
+            <button onclick="filterGames('Sports')"
+                class="filter-btn px-5 py-2 rounded-full">
+
+                ⚽ Sports
+
+            </button>
+
+        </div>
+
+
+
+      
+
+        <div id="gameList"
+            class="grid grid-cols-1 sm:grid-cols-2
+            lg:grid-cols-3 xl:grid-cols-4 gap-7">
+
+
+
+
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Action">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi6Luduruk5yAJYHQdWclRj_Xb9ObJFe0HFAoiVAyImQ&s=10"
+                        class="w-full h-56 object-cover"
+                        alt="Call of Duty">
+
+
+                    <span class="absolute top-3 left-3
+                        bg-red-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        ACTION
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        Call of Duty
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        Fast-paced shooting and multiplayer battles.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.8
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'Call of Duty',
+                                'Action',
+                                '4.8',
+                                'Fast-paced multiplayer shooting game.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('Call of Duty')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            
+
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Adventure">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/homepage_discover_our_games_mc_dungeons_ii_key_art_864x864.jpg"
+                        class="w-full h-56 object-cover"
+                        alt="Minecraft">
+
+                    <span class="absolute top-3 left-3
+                        bg-green-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        ADVENTURE
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        Minecraft
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        Build, explore and create your own world.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.9
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'Minecraft',
+                                'Adventure',
+                                '4.9',
+                                'Build, explore and create your own world.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('Minecraft')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            
+
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Racing">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlWWRfuC3LlvuSMRtWiRD9SpmftpcB2T6ok2pnsElk9Q&s=10"
+                        class="w-full h-56 object-cover"
+                        alt="Forza Horizon">
+
+                    <span class="absolute top-3 left-3
+                        bg-blue-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        RACING
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        Forza Horizon
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        Open-world racing with amazing cars.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.7
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'Forza Horizon',
+                                'Racing',
+                                '4.7',
+                                'Open-world racing with a large collection of cars.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('Forza Horizon')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            
+
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Action">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiziDlEkqGJZ3ck_dciSsOIzHUkRU-h-K37OlKYMWULw&s=10"
+                        class="w-full h-56 object-cover"
+                        alt="GTA V">
+
+                    <span class="absolute top-3 left-3
+                        bg-yellow-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        ACTION
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        GTA V
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        Explore an open-world city and complete missions.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.8
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'GTA V',
+                                'Action',
+                                '4.8',
+                                'Explore a huge open-world city and complete missions.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('GTA V')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            
+
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Action">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS822HMB4Nc5GWC3FfxF1klxeHCa6tvZOFkF9gukt0y9Q&s=10"
+                        class="w-full h-56 object-cover"
+                        alt="Valorant">
+
+                    <span class="absolute top-3 left-3
+                        bg-cyan-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        ACTION
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        Valorant
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        Tactical team-based shooting game.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.6
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'Valorant',
+                                'Action',
+                                '4.6',
+                                'Tactical team-based competitive shooting game.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('Valorant')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            
+
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Sports">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlEjwifbEHUivFhbWqdRsyM7Tp5_nRkGru64sObLx2DA&s=10"
+                        class="w-full h-56 object-cover"
+                        alt="EA Sports FC">
+
+                    <span class="absolute top-3 left-3
+                        bg-green-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        SPORTS
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        EA Sports FC
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        Play football matches with your favourite teams.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.5
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'EA Sports FC',
+                                'Sports',
+                                '4.5',
+                                'Football game featuring teams and competitive matches.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('EA Sports FC')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+          
+
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Adventure">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9OLQEyAjRbtqdWmXW4ztlWjZmvHqidhrOmj1kjFqPbQ&s=10"
+                        class="w-full h-56 object-cover"
+                        alt="Resident Evil">
+
+                    <span class="absolute top-3 left-3
+                        bg-orange-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        ADVENTURE
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        Resident Evil
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        Explore mysterious places and survive the story.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.7
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'Resident Evil',
+                                'Adventure',
+                                '4.7',
+                                'Explore mysterious locations and survive the story.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('Resident Evil')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+         
+
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Racing">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKms4MVwfJWwKj-R3LhrDeouf6rAvDdNtVKxl1cgDljw&s=10"
+                        class="w-full h-56 object-cover"
+                        alt="Need for Speed">
+
+                    <span class="absolute top-3 left-3
+                        bg-pink-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        RACING
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        Need for Speed
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        High-speed racing and car customization.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.6
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'Need for Speed',
+                                'Racing',
+                                '4.6',
+                                'High-speed street racing with exciting cars.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('Need for Speed')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Action">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2zGLGZScm2a7kQyu20q2O0Ajd0wKa6SuRdaR7IgvhOQ&s=10"
+                        class="w-full h-56 object-cover"
+                        alt="Fortnite">
+
+                    <span class="absolute top-3 left-3
+                        bg-indigo-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        ACTION
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        Fortnite
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        Battle, build and compete with other players.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.5
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'Fortnite',
+                                'Action',
+                                '4.5',
+                                'Battle, build and compete against other players.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('Fortnite')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            
+
+            <div class="game game-card bg-slate-900
+                rounded-2xl overflow-hidden
+                border border-slate-800
+                hover:border-purple-500
+                transition duration-300"
+                data-category="Adventure">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://static0.polygonimages.com/wordpress/wp-content/uploads/2025/05/ELDEN-RING-NIGHTREIGN-_-Ironeye-Character-Trailer-0-22-screenshot.jpg?w=1600&h=900&fit=crop"
+                        class="w-full h-56 object-cover"
+                        alt="Elden Ring">
+
+                    <span class="absolute top-3 left-3
+                        bg-violet-600 px-3 py-1 rounded-full
+                        text-xs font-bold">
+
+                        ADVENTURE
+
+                    </span>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3 class="gameName text-xl font-bold">
+                        Elden Ring
+                    </h3>
+
+                    <p class="text-gray-400 text-sm mt-2">
+                        Explore a huge fantasy world and face challenges.
+                    </p>
+
+
+                    <div class="flex justify-between items-center mt-5">
+
+                        <span class="text-yellow-400">
+                            ⭐ 4.9
+                        </span>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="openDetails(
+                                'Elden Ring',
+                                'Adventure',
+                                '4.9',
+                                'Explore a huge fantasy world and face challenging enemies.'
+                                )"
+                                class="bg-slate-800
+                                hover:bg-purple-600
+                                px-3 py-2 rounded-lg">
+
+                                👁️
+
+                            </button>
+
+
+                            <button
+                                onclick="addFavorite('Elden Ring')"
+                                class="bg-slate-800
+                                hover:bg-pink-600
+                                px-3 py-2 rounded-lg">
+
+                                ❤️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    
+
+    <div id="detailsModal"
+        class="hidden fixed inset-0 z-[100]
+        modal-bg flex items-center justify-center p-5">
+
+        <div class="bg-slate-900 border border-purple-700
+            rounded-2xl p-7 max-w-md w-full">
+
+            <div class="flex justify-between items-center">
+
+                <h2 id="modalTitle"
+                    class="text-3xl font-bold">
+                </h2>
+
+                <button onclick="closeModal()"
+                    class="text-gray-400 hover:text-white text-2xl">
+                    ✕
+                </button>
+
+            </div>
+
+
+            <p id="modalCategory"
+                class="text-purple-400 font-semibold mt-3">
+            </p>
+
+
+            <p id="modalRating"
+                class="text-yellow-400 mt-3">
+            </p>
+
+
+            <p id="modalDescription"
+                class="text-gray-400 mt-5 leading-relaxed">
+            </p>
+
+
+            <button onclick="closeModal()"
+                class="bg-purple-600 hover:bg-purple-700
+                w-full py-3 rounded-xl mt-7">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+    <footer class="bg-slate-950 border-t border-slate-800 py-10">
+
+        <div class="max-w-7xl mx-auto px-5 text-center">
+
+            <h2 class="text-2xl font-bold">
+                🎮 <span class="text-purple-400">Wander</span>X
+            </h2>
+
+            <p class="text-gray-500 mt-3">
+                Explore • Play • Enjoy
+            </p>
+
+            <p class="text-gray-600 text-sm mt-4">
+                Created using HTML, Tailwind CSS & JavaScript by Ketaki Baraptre CS25147
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+   
+
+    <script>
+
+        
+
+        let favorites = [];
+
+
+        
+
+        function addFavorite(game) {
+
+            if (!favorites.includes(game)) {
+
+                favorites.push(game);
+
+                document.getElementById("favCount")
+                    .innerText = favorites.length;
+
+                alert(game + " added to favorites ❤️");
+
+            }
+
+            else {
+
+                alert(game + " is already in favorites!");
+
+            }
+
+        }
+
+
+    
+
+        function showFavorites() {
+
+            if (favorites.length === 0) {
+
+                alert("No favorite games yet!");
+
+            }
+
+            else {
+
+                alert(
+                    "❤️ YOUR FAVORITES\n\n" +
+                    favorites.join("\n")
+                );
+
+            }
+
+        }
+
+
+
+        function searchGames() {
+
+            let searchText =
+                document.getElementById("search")
+                .value
+                .toLowerCase();
+
+            let games =
+                document.getElementsByClassName("game");
+
+
+            for (let i = 0; i < games.length; i++) {
+
+                let name =
+                    games[i]
+                    .getElementsByClassName("gameName")[0]
+                    .innerText
+                    .toLowerCase();
+
+
+                if (name.includes(searchText)) {
+
+                    games[i].style.display = "block";
+
+                }
+
+                else {
+
+                    games[i].style.display = "none";
+
+                }
+
+            }
+
+        }
+
+
+      
+
+        function filterGames(category) {
+
+            let games =
+                document.getElementsByClassName("game");
+
+
+            for (let i = 0; i < games.length; i++) {
+
+                let gameCategory =
+                    games[i].getAttribute("data-category");
+
+
+                if (
+                    category === "all" ||
+                    gameCategory === category
+                ) {
+
+                    games[i].style.display = "block";
+
+                }
+
+                else {
+
+                    games[i].style.display = "none";
+
+                }
+
+            }
+
+        }
+
+
+        
+        function openDetails(
+            name,
+            category,
+            rating,
+            description
+        ) {
+
+            document.getElementById("modalTitle")
+                .innerText = name;
+
+            document.getElementById("modalCategory")
+                .innerText = category;
+
+            document.getElementById("modalRating")
+                .innerText = "⭐ " + rating + " / 5";
+
+            document.getElementById("modalDescription")
+                .innerText = description;
+
+
+            document.getElementById("detailsModal")
+                .classList.remove("hidden");
+
+        }
+
+
+       
+
+        function closeModal() {
+
+            document.getElementById("detailsModal")
+                .classList.add("hidden");
+
+        }
+
+
+     
+
+        function scrollToFeatured() {
+
+            document.getElementById("featured")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+
